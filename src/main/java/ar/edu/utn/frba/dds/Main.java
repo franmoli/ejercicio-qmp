@@ -2,16 +2,39 @@ package ar.edu.utn.frba.dds;
 
 public class Main {
   public static void main(String[] args) {
-    Prenda zapato = new Prenda(TipoDePrenda.ZAPATO, Material.CUERO, Colores.ROJO);
-    Prenda remera = new Prenda(TipoDePrenda.REMERA, Material.ALGODON, Colores.NEGRO);
-    Prenda pantalon = new Prenda(TipoDePrenda.PANTALON, Material.JEAN, Colores.AZUL);
 
-    Conjunto conjunto1 = new Conjunto();
+    Guardarropa guardarropa = new Guardarropa();
 
-    conjunto1.agregarPrenda(zapato);
-    conjunto1.agregarPrenda(remera);
-    conjunto1.agregarPrenda(pantalon);
+    Prenda zapato = new Prenda(TipoDePrenda.ZAPATO);
+    guardarropa.setBorrador(zapato);
 
-    conjunto1.mostrarConjunto();
+    Prenda remera = new Prenda(TipoDePrenda.REMERA);
+    remera.setMaterial(Material.ALGODON);
+    remera.setColorPrincipal(Colores.NEGRO);
+    remera.setColorSecundario(Colores.ROJO);
+    remera.setTrama(Trama.ESTAMPADO);
+    guardarropa.agregarPrenda(remera);
+
+
+    guardarropa.borrador.setColorPrincipal(Colores.MARRON);
+    guardarropa.borrador.setMaterial(Material.CUERO);
+    guardarropa.agregarPrenda(guardarropa.getBorrador());
+
+
+    Prenda pantalon = new Prenda(TipoDePrenda.PANTALON);
+    pantalon.setMaterial(Material.JEAN);
+    pantalon.setColorPrincipal(Colores.AZUL);
+    guardarropa.agregarPrenda(pantalon);
+
+    guardarropa.mostrarGuardarropas();
+
+
+    Uniforme uniforme1 = new Uniforme(remera, pantalon, zapato);
+    Institucion colegioSanJuan = new Institucion("Colegio San Juan", uniforme1);
+    System.out.println("Colegio: " + colegioSanJuan.nombre);
+    colegioSanJuan.uniforme.mostrarUniforme();
+
+
+
   }
 }

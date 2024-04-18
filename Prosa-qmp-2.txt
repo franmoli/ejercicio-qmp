@@ -1,0 +1,19 @@
+ITERACION 2
+Para esta iteración un requerimiento era poder especificar la trama y que por defecto sea lisa,
+lo resolví creando un enum de trama que este dentro de la clase prenda, y el valor sea lisa.
+
+Para el siguiente requerimiento de poder crear una prenda solamente definiendo el tipo y luego el resto de atributos
+elimino los constructores anteriores y dejo uno solamente con tipo y validando que no sea nulo.
+Para los demás atributos creo los setters, y debido a que no especifica el requerimiento que materiales y colores son
+incompatibles unos con otros entonces solamente verifíco que el valor ingresado no sea null.
+
+Luego para el siguiente requerimiento de guardar prendas, y tener una prenda cargada como borrador creo
+la clase Guardarropa. Esta clase tiene una lista de prendas guardadas, y un borrador prenda.
+Para setear un nuevo borrador no hay restricciones. Para agregar una prenda a la lista de prendas,
+como no hay una definición de que constituye una prenda inválida, me limito a verificar que esté completa, es decir que
+tenga un material, trama y color principal.
+
+
+En cuanto a los requerimientos bonus. Creo la clase uniforme, donde el constructor pide una prenda superior, una inferior
+y un calzado. Se valida que no sean nulos y que sean del tipo adecuado. Luego creo la clase Institución,
+la cual tiene un nombre y su uniforme.

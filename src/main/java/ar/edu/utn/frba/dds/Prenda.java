@@ -5,29 +5,43 @@ public class Prenda {
   Material material;
   Colores colorPrincipal;
   Colores colorSecundario;
+  Trama trama = Trama.LISA;
 
-  public Prenda(TipoDePrenda tipo, Material material,
-                Colores colorPrincipal, Colores colorSecundario) {
-    this.validarColorPrincipal(colorPrincipal);
+  public Prenda(TipoDePrenda tipo) {
+    if (tipo == null) {
+      throw new NullPointerException("Tipo de prenda nulo");
+    }
     this.tipo = tipo;
+  }
+
+  public void setMaterial(Material material) {
+    if (material == null) {
+      throw new NullPointerException("Material nulo");
+    }
     this.material = material;
+  }
+
+  public void setColorPrincipal(Colores colorPrincipal) {
+    if (colorPrincipal == null) {
+      throw new NullPointerException("Color de prenda nulo");
+    }
     this.colorPrincipal = colorPrincipal;
+  }
+
+  public void setColorSecundario(Colores colorSecundario) {
+    if (colorSecundario == null) {
+      throw new NullPointerException("Color de prenda nulo");
+    }
     this.colorSecundario = colorSecundario;
   }
 
-  public Prenda(TipoDePrenda tipo, Material material, Colores colorPrincipal) {
-    this.validarColorPrincipal(colorPrincipal);
-    this.tipo = tipo;
-    this.material = material;
-    this.colorPrincipal = colorPrincipal;
-    this.colorSecundario = Colores.NO_DEFINIDO;
+  public void setTrama(Trama trama) {
+    if (trama == null) {
+      throw new NullPointerException("Trama nula");
+    }
+    this.trama = trama;
   }
 
-  private void validarColorPrincipal(Colores colorPrincipal) {
-    if (colorPrincipal == Colores.NO_DEFINIDO) {
-      throw new RuntimeException("El color principal no puede ser No definido");
-    }
-  }
 
   public TipoDePrenda getTipo() {
     return this.tipo;

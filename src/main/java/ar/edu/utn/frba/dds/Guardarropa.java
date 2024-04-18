@@ -3,15 +3,35 @@ package ar.edu.utn.frba.dds;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Conjunto {
+
+public class Guardarropa {
+  public Prenda borrador;
   public List<Prenda> prendas = new ArrayList<Prenda>();
 
-  public void agregarPrenda(Prenda prenda) {
-    prendas.add(prenda);
+  public Prenda getBorrador() {
+    return this.borrador;
   }
 
-  public void mostrarConjunto() {
-    System.out.println("Conjunto guardado:");
+  public void setBorrador(Prenda borrador) {
+    this.borrador = borrador;
+  }
+
+  public void agregarPrenda(Prenda prenda) {
+    if (this.prendaValida(prenda)) {
+      prendas.add(prenda);
+    }
+  }
+
+  private boolean prendaValida(Prenda prenda) {
+    if (prenda == null) {
+      return false;
+    }
+
+    return (prenda.material != null && prenda.colorPrincipal != null && prenda.trama != null);
+  }
+
+  public void mostrarGuardarropas() {
+    System.out.println("Prenda guardada:");
     for (int i = 0; i < prendas.size(); i++) {
       int indice = i + 1;
       Prenda prenda = prendas.get(i);
